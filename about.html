@@ -6,12 +6,37 @@
             html{
                 background-color: #300a00;
                 color: #FFFDEF;
-                font-family: 'Manrope', sans-serif;
+                font-family: 'Times New Roman', Times, serif;
             }
-            
+            .profiles{
+                display:flex;
+            }
+            .title{
+                margin:auto;
+                text-align:center;
+                font-size:30pt;
+                padding-top:10%;
+                animation: horizontal-shaking;
+            }
+            .title p:hover{
+                color: #ffbb0f;
+                animation: horizontal-shaking 0.5s;
+
+            }
+            @keyframes horizontal-shaking {
+                0% { transform: translateX(0) }
+                25% { transform: translateX(5px) }
+                50% { transform: translateX(-5px) }
+                75% { transform: translateX(5px) }
+                100% { transform: translateX(0) }
+            }
         </style>
     </head>
     <body>
-        WanWan is cool
+        <div class="title"> 
+            <p>Meet The Design Team.</p>
+        </div>
+        <div class="profiles">
+        </div>
     </body>
 </html>
