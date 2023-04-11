@@ -10,18 +10,28 @@
             }
             .profiles{
                 display:flex;
+                flex-wrap: wrap;
+                align-content:center;
+                padding-top:10%;
+                justify-content: center;
+                gap:40px;
+            }
+            #imgcontainer{
+                transition: transform 250ms;
+            }
+            #imgcontainer:hover {
+                transform: scale(1.1);
             }
             .title{
                 margin:auto;
                 text-align:center;
                 font-size:30pt;
-                padding-top:10%;
+                padding-top:5%;
                 animation: horizontal-shaking;
             }
             .title p:hover{
                 color: #ffbb0f;
                 animation: horizontal-shaking 0.5s;
-
             }
             @keyframes horizontal-shaking {
                 0% { transform: translateX(0) }
@@ -30,6 +40,15 @@
                 75% { transform: translateX(5px) }
                 100% { transform: translateX(0) }
             }
+            img{
+                border-radius: 50%;
+                width:200px;
+                height:200px;
+                box-shadow: 10px 5px 5px black;
+            }
+            p{
+                text-align:center;
+            }
         </style>
     </head>
     <body>
@@ -37,6 +56,37 @@
             <p>Meet The Design Team.</p>
         </div>
         <div class="profiles">
+                <div id="imgcontainer">
+                    <img src="http://webdev.iyaclasses.com/~samaksha/acad275/resume_headshot.jpg">
+                    <p style="font-size:16pt;"><b>Sama Shah</b></p>
+                    <p><em>samaksha@usc.edu</em></p>
+                </div>
+                
+
+                <div id="imgcontainer">
+                    <img src="http://webdev.iyaclasses.com/~tjlouie/acad275/Tyler.jpg">
+                    <p style="font-size:16pt;"><b>name</b></p>
+                    <p><em>usc email</em></p>
+                </div>
+
+                <div id="imgcontainer">
+                    <img src="http://webdev.iyaclasses.com/~relovsky/acad275/resume/Headshot.jpg">
+                    <p style="font-size:16pt;"><b>name</b></p>
+                    <p><em>usc email</em></p>
+                </div>
+
+                <div id="imgcontainer">
+                    <img src="http://webdev.iyaclasses.com/~meiqili/acad275/assets/resume2.jpg">
+                    <p style="font-size:16pt;"><b>name</b></p>
+                    <p><em>usc email</em></p>
+                </div>
+
+                <div id="imgcontainer">
+                    <img src="http://webdev.iyaclasses.com/~hafox/acad275/henryResumeWebpageLab/Fox_Henry_Photo.jpeg">
+                    <p style="font-size:16pt;"><b>name</b></p>
+                    <p><em>usc email</em></p>
+                </div>
+
         </div>
     </body>
 </html>
