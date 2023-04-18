@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>photogallery!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery.js"></script>
+</head>
+<style>
+    html {
+        color: #300a00;
+        background-color: #FFFDEF;
+        font-family: 'Manrope', sans-serif;
+        margin: 2%;
+    }
+    #mainimageeee{
+  /* border-color: red;
+  border-style: solid;
+  border-width: 10px; */
+  width: 20%;
+  height: 20%;
+margin-left: 59%;
+margin-top: 55px;
+  position: absolute;
+
+ 
+
+}
+#container { 
+    flex-direction: row;
+	width: 100%;
+  height: 50%;
+  /* border-style: solid;
+  border-color: red;
+  border-width: 8px; */
+  margin-top: 4%;
+  margin-left: 15%;
+ 
+  /* //add absolute position */
+}
+
+#thumbnails {
+	margin:auto;
+	width: 100%;	
+  height: auto;
+ 
+  flex-direction: row;
+  /* border-style: solid;
+  border-color: black;
+  border-width: 8px; */
+}
+
+/* #main {
+	width: 600px;
+  margin-top: 15%;
+  margin-left: 50%;
+	position: absolute;
+	text-align: center;
+} */
+
+.thumb {
+    float: left;
+	width: 10%; height: 80%;
+	border-width: 0px;
+
+
+
+  padding-top: 25px;
+}
+    .navbar {
+        text-align: center;
+        padding-top: 2%;
+        margin-right: 2%;
+        /* opacity: 0.7; */
+        transition: 0.4s;
+        /* overflow: hidden; */
+        position: fixed;
+        /* Set the navbar to fixed position */
+        top: 0;
+        /* Position the navbar at the top of the page */
+        width: 100%;
+        /* Full width */
+        background-color: #FFFDEF;
+    }
+
+    .navbar {
+        text-align: center;
+        /* opacity: 0.7; */
+        transition: 0.4s;
+        /* overflow: hidden; */
+        position: fixed;
+        /* Set the navbar to fixed position */
+        top: 0;
+        /* Position the navbar at the top of the page */
+        width: 100%;
+        /* Full width */
+        background-color: #FFFDEF;
+    }
+
+    .navbar:hover {
+        opacity: 1;
+    }
+
+    .navbar a {
+        color: #300a00;
+        padding: 5px;
+        margin: 3px;
+        border-radius: 5px;
+        text-decoration: none;
+        position: relative;
+        font-weight: bold;
+        opacity: 0.7;
+    }
+
+    .navbar a:hover {
+        color: #ffbb0f;
+        padding: 5px;
+        border-radius: 5px;
+        opacity: 0.8;
+    }
+
+    .navbar a::before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #ffbb0f;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+
+    .navbar a:hover::before {
+        transform: scaleX(1);
+    }
+
+    .title {
+        margin-top: 3%;
+        margin-bottom: 3%;
+        font-size: 60pt;
+        text-align: left;
+        font-weight: bolder;
+        margin: 3% 10% 3% 10%;
+
+    }
+
+    .title p:hover {
+        color: #ffbb0f;
+    }
+
+    p {
+        margin: 0%;
+    }
+
+    img {
+        border-radius: 30px;
+        width: 700px;
+        height: 400px;
+        object-fit: cover;
+        object-position: 20% 10%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .maintext {
+        margin: 3% 10% 3% 10%;
+        font-size: 40pt;
+        font-weight: bolder;
+    }
+
+    .scroll-text-container {
+        width: 100%;
+        height: 30px;
+        overflow: hidden;
+        margin-top: 5%;
+    }
+
+    .scroll-text {
+        display: inline-block;
+        white-space: nowrap;
+        animation: scroll-text 5s linear infinite;
+        height: 60px;
+    }
+
+    .scroll-text p {
+        display: inline-block;
+        font-weight: bolder;
+        font-size: large;
+    }
+
+    @keyframes scroll-text {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    .wiggle {
+  text-align: right;
+  width: 100%;
+}
+
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  80% { transform: rotate(0deg); }
+  85% { transform: rotate(5deg); }
+  95% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+h1.wiggle {
+  display: inline-block;
+  animation: wiggle 2.5s infinite;
+  position: inline;
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+}
+
+h1.wiggle:hover {
+  animation: none;
+  color: #ffbb0f;
+}
+
+.bodytext { 
+    font-size: 24px;
+    margin: 3% 10% 3% 10%;
+}
+
+.button { 
+    margin: 10% 10% 3% 10%; 
+    padding: 20px;
+    border-radius: 50px;
+    background-color: #ffbb0f;
+    text-decoration: none;
+    color: #FFFDEF;
+}
+
+.button:hover{ 
+    background-color: #300a00;
+    color: #FFFDEF;
+}
+
+@media only screen and (max-width: 600px) {
+    .title { 
+        font-size: 80px;
+        margin-top: 5%;
+    }
+
+    img {
+        width: 450px;
+        height: 290px;
+    }
+}
+
+/* @media only screen and (max-width: 750px) {
+    img {
+        width: 550px;
+        height: 390px;
+    }
+} */
+</style>
+
+<body>
+   
+    <script>
+
+        $(document).ready(function(){
+        
+          $("#thumb1, #thumb2, #thumb3, #thumb4").css('opacity', '0.9');
+          //$("#thumb2").css('opacity', '0.5');
+        
+          $("#thumb1").on("mouseover", function(){
+          $(this).css("opacity", "1");
+        })
+        $("#thumb1").on("mouseout", function(){
+          $(this).css("opacity", ".9");
+        })
+        $("#thumb2").on("mouseover", function(){
+          $(this).css("opacity", "1");
+        })
+        $("#thumb2").on("mouseout", function(){
+          $(this).css("opacity", ".9");
+        })
+        $("#thumb3").on("mouseover", function(){
+          $(this).css("opacity", "1");
+        })
+        $("#thumb3").on("mouseout", function(){
+          $(this).css("opacity", ".9");
+        })
+        $("#thumb4").on("mouseover", function(){
+          $(this).css("opacity", "1");
+          $(this).css("border-width", "5px");
+        })
+        $("#thumb4").on("mouseout", function(){
+          $(this).css("opacity", ".9");
+        })
+        
+        
+        $(".thumb").on("click", function(){
+          //turn off borders on all but then add to the one selected
+          $(".thumb").css('border-width', '0px')
+          $(this).css('border-width', '2px');
+          //store both of image clicked
+          let newsrc = $(this).attr("src");
+          let newcaption = $(this).attr("caption");
+          //print to check
+          // console.log(newsrc);
+          // console.log($(this).css("opacity"));
+          
+          $("#mainphoto").hide(function() {
+            $(this).attr("src", newsrc).fadeIn();
+          })
+         
+        $("#caption").hide(function(){
+          $(this).html(newcaption).fadeIn();
+        })
+        
+        })
+        
+        });
+        
+        </script>
+
+
+    <div class="navbar">
+        <div>
+            <a href="home.html">HOME</a>
+            <a href="menu/menu.html">MENU</a>
+            <a href="aboutWanwan.html">ABOUT</a>
+        </div>
+    </div>
+
+    <div class="title">
+        <p>What would you want to try today?</p>
+    </div>
+
+
+
+
+
+
+    <!-- <div class="gif">
+        <img src="hungry.gif">
+    </div> -->
+
+    <div class="scroll-text-container">
+        <div class="scroll-text">
+            <p>We love snacks &nbsp &nbsp &nbsp &nbsp</p>
+            <p>We love snacks &nbsp &nbsp &nbsp &nbsp</p>
+            <p>We love snacks &nbsp &nbsp &nbsp &nbsp</p>
+            <p>We love snacks &nbsp &nbsp &nbsp &nbsp</p>
+            <p>We love snacks &nbsp &nbsp &nbsp &nbsp</p>
+            <p>We love snacks &nbsp &nbsp &nbsp &nbsp</p>
+            <p>We love snacks &nbsp &nbsp &nbsp &nbsp</p>
+            <p>We love snacks &nbsp &nbsp &nbsp &nbsp</p>
+            <p>We love snacks &nbsp &nbsp &nbsp &nbsp</p>
+            <p>We love snacks &nbsp &nbsp &nbsp &nbsp</p>
+            <p>We love snacks &nbsp &nbsp &nbsp &nbsp</p>
+
+        </div>
+    </div>
+
+    
+<br><br><br><br><br><br>
+    <div id="mainimageeee">
+        <img src="thums2.png" name="mainphoto" width="100%" height="auto" id="mainphoto"  border="0"/>
+        <br />
+        <div id="caption"><strong>Try our best sellers!</strong>
+        </div> 
+    </div>
+
+    <div id="container">
+
+            <div id="thumbnails">
+                <img src="thums1.png" class="thumb" id="thumb1"
+                caption="<strong>Shin Ramen</strong>, Just <em> $1.00</em> " />
+                
+                &nbsp;
+        
+                <img src="thums2.png"  class="thumb" id="thumb2"
+                caption="<strong>Barbecue chicken flavor</strong>, Just<em> $2.99</em>" />
+                
+                &nbsp;
+                
+                <img src="thums3.png" class="thumb" id="thumb3"
+                caption="<strong>Yummy bubble tea mochi pack</strong> just <em> $4.99</em>"  />
+                
+                &nbsp;
+                
+                <img src="thums4.png" class="thumb" id="thumb4"
+                caption="<strong>Choco pie</strong> Just<em> $1.00</em>"  /> 
+            </div> 
+    </div>
+
+
+
+
+</body>
+
+</html>
