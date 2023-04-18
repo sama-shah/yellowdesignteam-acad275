@@ -2,13 +2,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="emailform.css">
     <style>
         html{
                 color: #300a00;
                 background-color: #ffbb0f;
                 font-family: 'Manrope', sans-serif;
                 margin:2%;
+                box-sizing: border-box; /*for email sign up popup*/
             }
             body{
                 padding: 0px;
@@ -269,7 +270,7 @@
         <div class="RightText">
             <br>
             <br>
-            <span id="MedText">We’re a snack delivery service for on-campus USC students specializing in international snacks.</span>
+            <span id="MedText">We're a snack delivery service for on-campus USC students specializing in international snacks.</span>
             <br>
             <br>
             <br>
@@ -295,4 +296,32 @@
             </div>
         </div>
     </div>
+
+    <!-- email sign up form -->
+    <button class="open-button" onclick="openForm()">Sign Up!</button>
+
+        <div class="form-popup" id="myForm">
+        <form action="/action_page.php" class="form-container">
+            <h1 style="font-size:16pt;">Join the Wanwan Fam :)</h1>
+
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+
+            <button type="submit" class="btn">Sign Up</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+        </div>
+
+        <script>
+            function openForm() {
+                document.getElementById("myForm").style.display = "block";
+            }
+
+            function closeForm() {
+                document.getElementById("myForm").style.display = "none";
+            }
+        </script>
 </body>
