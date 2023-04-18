@@ -103,3 +103,13 @@ a{
     padding-top: 30px;
     border-radius: 15px;
 }
+
+@media screen and (max-width:800px) {
+    .container {width: 400px;}
+    h1 {font-size: 40pt;}
+}
+
+@media screen and (max-width:600px) {
+    .container {width: 300px;}
+    h1 {font-size: 30pt;}
+}
