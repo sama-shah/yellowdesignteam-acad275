@@ -23,23 +23,29 @@
   border-style: solid;
   border-width: 10px; */
   width: 20%;
-  height: 20%;
-margin-left: 59%;
-margin-top: 55px;
-  position: absolute;
+  height: 100%;
+  padding-bottom: 5%;
+margin-left: 20%;
+margin-top: -115px;
+  /* position: absolute; */
 
  
 
 }
+#mainphoto{
+
+display: flex;
+height: 100%;
+}
 #container { 
     flex-direction: row;
 	width: 100%;
-  height: 50%;
+  height: 60%;
   /* border-style: solid;
   border-color: red;
   border-width: 8px; */
   margin-top: 4%;
-  margin-left: 15%;
+  margin-left: 8%;
  
   /* //add absolute position */
 }
@@ -47,8 +53,8 @@ margin-top: 55px;
 #thumbnails {
 	margin:auto;
 	width: 100%;	
-  height: auto;
- 
+  height: 100%;
+
   flex-direction: row;
   /* border-style: solid;
   border-color: black;
@@ -65,12 +71,10 @@ margin-top: 55px;
 
 .thumb {
     float: left;
-	width: 10%; height: 80%;
+	width: 10%; height: 100%;
 	border-width: 0px;
-
-
-
   padding-top: 25px;
+  padding: 10px;
 }
     .navbar {
         text-align: center;
@@ -195,7 +199,9 @@ margin-top: 55px;
         font-weight: bolder;
         font-size: large;
     }
-
+#caption{
+    font-size: large;
+}
     @keyframes scroll-text {
         0% {
             transform: translateX(0);
@@ -254,13 +260,13 @@ h1.wiggle:hover {
 
 @media only screen and (max-width: 600px) {
     .title { 
-        font-size: 80px;
+        font-size: 40px;
         margin-top: 5%;
     }
 
     img {
-        width: 450px;
-        height: 290px;
+        width: 350px;
+        height: auto;
     }
 }
 
@@ -306,6 +312,23 @@ h1.wiggle:hover {
         $("#thumb4").on("mouseout", function(){
           $(this).css("opacity", ".9");
         })
+        
+        $("#thumb5").on("mouseover", function(){
+          $(this).css("opacity", "1");
+          $(this).css("border-width", "5px");
+        })
+        $("#thumb5").on("mouseout", function(){
+          $(this).css("opacity", ".9");
+        })
+
+        $("#thumb6").on("mouseover", function(){
+          $(this).css("opacity", "1");
+          $(this).css("border-width", "5px");
+        })
+        $("#thumb6").on("mouseout", function(){
+          $(this).css("opacity", ".9");
+        })
+        
         
         
         $(".thumb").on("click", function(){
@@ -375,9 +398,9 @@ h1.wiggle:hover {
     
 <br><br><br><br><br><br>
     <div id="mainimageeee">
-        <img src="thums2.png" name="mainphoto" width="100%" height="auto" id="mainphoto"  border="0"/>
+        <img src="thums2.png" name="mainphoto" width="100%" height="100%" id="mainphoto"  border="0"/>
         <br />
-        <div id="caption"><strong>Try our best sellers!</strong>
+        <div id="caption"><strong> Try our best sellers!</strong>
         </div> 
     </div>
 
@@ -395,12 +418,22 @@ h1.wiggle:hover {
                 &nbsp;
                 
                 <img src="thums3.png" class="thumb" id="thumb3"
-                caption="<strong>Yummy bubble tea mochi pack</strong> just <em> $4.99</em>"  />
+                caption="<strong>Yummy bubble tea mochi pack</strong>, just <em> $4.99</em>"  />
                 
                 &nbsp;
                 
                 <img src="thums4.png" class="thumb" id="thumb4"
-                caption="<strong>Choco pie</strong> Just<em> $1.00</em>"  /> 
+                caption="<strong>Choco pie</strong>, Just<em> $1.00</em>"  /> 
+
+                &nbsp;
+                
+                <img src="thums5.png" class="thumb" id="thumb4"
+                caption="<strong>Small Party Pack</strong> for just<em> $19.99</em>"  /> 
+
+                &nbsp;
+                
+                <img src="thums6.png" class="thumb" id="thumb4"
+                caption="<strong>Large Party Pack</strong>  for just<em> $29.99</em>"  /> 
             </div> 
     </div>
 
