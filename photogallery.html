@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Wan Wan </title>
+    <title>photogallery!</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery.js"></script>
 </head>
 <style>
     html {
@@ -17,7 +18,64 @@
         font-family: 'Manrope', sans-serif;
         margin: 2%;
     }
+    #mainimageeee{
+  /* border-color: red;
+  border-style: solid;
+  border-width: 10px; */
+  width: 20%;
+  height: 100%;
+  padding-bottom: 5%;
+margin-left: 20%;
+margin-top: -115px;
+  /* position: absolute; */
 
+ 
+
+}
+#mainphoto{
+
+display: flex;
+height: 100%;
+}
+#container { 
+    flex-direction: row;
+	width: 100%;
+  height: 60%;
+  /* border-style: solid;
+  border-color: red;
+  border-width: 8px; */
+  margin-top: 4%;
+  margin-left: 8%;
+ 
+  /* //add absolute position */
+}
+
+#thumbnails {
+	margin:auto;
+	width: 100%;	
+  height: 100%;
+
+  flex-direction: row;
+  /* border-style: solid;
+  border-color: black;
+  border-width: 8px; */
+}
+
+/* #main {
+	width: 600px;
+  margin-top: 15%;
+  margin-left: 50%;
+	position: absolute;
+	text-align: center;
+} */
+
+.thumb {
+    float: left;
+	width: 10%; height: 100%;
+	border-width: 0px;
+  padding-top: 25px;
+  padding: 10px;
+}
     .navbar {
         text-align: center;
         padding-top: 2%;
@@ -90,7 +148,7 @@
     .title {
         margin-top: 3%;
         margin-bottom: 3%;
-        font-size: 80pt;
+        font-size: 60pt;
         text-align: left;
         font-weight: bolder;
         margin: 3% 10% 3% 10%;
@@ -141,7 +199,9 @@
         font-weight: bolder;
         font-size: large;
     }
-
+#caption{
+    font-size: large;
+}
     @keyframes scroll-text {
         0% {
             transform: translateX(0);
@@ -200,13 +260,13 @@ h1.wiggle:hover {
 
 @media only screen and (max-width: 600px) {
     .title { 
-        font-size: 80px;
+        font-size: 40px;
         margin-top: 5%;
     }
 
     img {
-        width: 450px;
-        height: 290px;
+        width: 350px;
+        height: auto;
     }
 }
 
@@ -219,21 +279,104 @@ h1.wiggle:hover {
 </style>
 
 <body>
+   
+    <script>
+
+        $(document).ready(function(){
+        
+          $("#thumb1, #thumb2, #thumb3, #thumb4").css('opacity', '0.9');
+          //$("#thumb2").css('opacity', '0.5');
+        
+          $("#thumb1").on("mouseover", function(){
+          $(this).css("opacity", "1");
+        })
+        $("#thumb1").on("mouseout", function(){
+          $(this).css("opacity", ".9");
+        })
+        $("#thumb2").on("mouseover", function(){
+          $(this).css("opacity", "1");
+        })
+        $("#thumb2").on("mouseout", function(){
+          $(this).css("opacity", ".9");
+        })
+        $("#thumb3").on("mouseover", function(){
+          $(this).css("opacity", "1");
+        })
+        $("#thumb3").on("mouseout", function(){
+          $(this).css("opacity", ".9");
+        })
+        $("#thumb4").on("mouseover", function(){
+          $(this).css("opacity", "1");
+          $(this).css("border-width", "5px");
+        })
+        $("#thumb4").on("mouseout", function(){
+          $(this).css("opacity", ".9");
+        })
+        
+        $("#thumb5").on("mouseover", function(){
+          $(this).css("opacity", "1");
+          $(this).css("border-width", "5px");
+        })
+        $("#thumb5").on("mouseout", function(){
+          $(this).css("opacity", ".9");
+        })
+
+        $("#thumb6").on("mouseover", function(){
+          $(this).css("opacity", "1");
+          $(this).css("border-width", "5px");
+        })
+        $("#thumb6").on("mouseout", function(){
+          $(this).css("opacity", ".9");
+        })
+        
+        
+        
+        $(".thumb").on("click", function(){
+          //turn off borders on all but then add to the one selected
+          $(".thumb").css('border-width', '0px')
+          $(this).css('border-width', '2px');
+          //store both of image clicked
+          let newsrc = $(this).attr("src");
+          let newcaption = $(this).attr("caption");
+          //print to check
+          // console.log(newsrc);
+          // console.log($(this).css("opacity"));
+          
+          $("#mainphoto").hide(function() {
+            $(this).attr("src", newsrc).fadeIn();
+          })
+         
+        $("#caption").hide(function(){
+          $(this).html(newcaption).fadeIn();
+        })
+        
+        })
+        
+        });
+        
+        </script>
+
+
     <div class="navbar">
         <div>
             <a href="home.html">HOME</a>
-            <a href="menu.html">MENU</a>
+            <a href="menu/menu.html">MENU</a>
             <a href="aboutWanwan.html">ABOUT</a>
         </div>
     </div>
 
     <div class="title">
-        <p>Who is Wan Wan?</p>
+        <p>What would you want to try today?</p>
     </div>
 
-    <div class="gif">
+
+
+
+
+
+    <!-- <div class="gif">
         <img src="hungry.gif">
-    </div>
+    </div> -->
 
     <div class="scroll-text-container">
         <div class="scroll-text">
@@ -252,22 +395,49 @@ h1.wiggle:hover {
         </div>
     </div>
 
-    <div class="maintext">
-        <p style="margin-right:30%;">All you really need to know is that we get hungry</p>
-        <h1 class="wiggle">...a lot.</h1>
+    
+<br><br><br><br><br><br>
+    <div id="mainimageeee">
+        <img src="thums2.png" name="mainphoto" width="100%" height="100%" id="mainphoto"  border="0"/>
+        <br />
+        <div id="caption"><strong> Try our best sellers!</strong>
+        </div> 
     </div>
 
-    <div class="bodytext">
-        <p>We know what it feels like. Feeling your wallet cry out in pain when you see that an Uber to Ktown costs $25. Being so hungry at 2AM that you’d sell a kidney for some food. Smelling ramen from the neighboring suite and wishing you had some… People need snacks. But not another pack of off-brand pita chips…we want the snacks that remind us of home.</p>
+    <div id="container">
 
-        <br> 
+            <div id="thumbnails">
+                <img src="thums1.png" class="thumb" id="thumb1"
+                caption="<strong>Shin Ramen</strong>, Just <em> $1.00</em> " />
+                
+                &nbsp;
+        
+                <img src="thums2.png"  class="thumb" id="thumb2"
+                caption="<strong>Barbecue chicken flavor</strong>, Just<em> $2.99</em>" />
+                
+                &nbsp;
+                
+                <img src="thums3.png" class="thumb" id="thumb3"
+                caption="<strong>Yummy bubble tea mochi pack</strong>, just <em> $4.99</em>"  />
+                
+                &nbsp;
+                
+                <img src="thums4.png" class="thumb" id="thumb4"
+                caption="<strong>Choco pie</strong>, Just<em> $1.00</em>"  /> 
 
-        <p>So, we founded <strong style="font-size:35px;">Wanwan!</strong> Right now, we’re still small, but if you stick with us, we hope we can bring more and more snacks to your door, faster.</p>
-        <br>
+                &nbsp;
+                
+                <img src="thums5.png" class="thumb" id="thumb4"
+                caption="<strong>Small Party Pack</strong> for just<em> $19.99</em>"  /> 
+
+                &nbsp;
+                
+                <img src="thums6.png" class="thumb" id="thumb4"
+                caption="<strong>Large Party Pack</strong>  for just<em> $29.99</em>"  /> 
+            </div> 
     </div>
 
-    <a class="button"href="aboutDesignTeam.html">Meet the Design Team
-    </a>
+
 
 
 </body>
