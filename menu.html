@@ -10,6 +10,12 @@
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
         <style>
+            @media only screen and (max-width: 800px) {
+                .container{
+                    flex-direction:column;
+                }
+            }
+            
             html{
                 color: #300a00;
                 background-color: #FFFDEF;
@@ -19,6 +25,7 @@
             }
             .navbar{
                 text-align:center;
+                padding:2%;
                 /* opacity: 0.7; */
                 transition:0.4s;
                 /* overflow: hidden; */
@@ -44,7 +51,7 @@
             }
             .navbar a:hover{
                 color:#ffbb0f;
-                padding:5px;
+                /* padding:5px; */
                 border-radius:5px;
                 opacity: 0.8;
             }
@@ -163,6 +170,7 @@
                 100% { transform: translateX(0) }
             }        
 
+            
         </style>
         <body>
             <div class="navbar">
