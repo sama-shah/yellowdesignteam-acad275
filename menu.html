@@ -10,6 +10,12 @@
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
         <script src="menu.js"></script>
 
+        <script>
+            $(document).ready(function() {
+                $("#myVideo")[0].play();
+            });
+            //0 is so can select HTML element 
+        </script>
 
         <style>
             @media only screen and (max-width: 800px) {
@@ -171,6 +177,14 @@
                 75% { transform: translateX(5px) }
                 100% { transform: translateX(0) }
             }        
+    /* #backgroundVid {
+    position: fixed;
+    z-index: 1;
+    top: 55px;
+    left: 570;
+    width: 320px;
+    height: 180px;
+  } */
 
             
         </style>
@@ -180,8 +194,19 @@
                     <a href="home.html">HOME</a>
                     <a href="">MENU</a>
                     <a href="aboutWanwan.html">ABOUT</a>
+                    <br>
+                    <div style="height: 120px;">
+                        <!-- proffesor I am the one adding a logo to this page. I adapted your code on html5 with the online reccomendation for getting autoplay to work on chrome (muted and btw using 0 index to play html element), here
+                        is for context https://stackoverflow.com/questions/34764876/html-5-video-autoplay-not-automatically-starting-in-chrome
+                    best -Henry-->
+                        <video width="170" height="120" autoplay="autoplay" controls="controls" loop="loop" id="playWhenLoad" muted>
+                            <source src="FinalLogoAnimation.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
                 </div>
             </div>
+            <br><br>
         <div class="container">
             <div class="title">
                 <div><b><p>Menu</p></b></div>
@@ -329,7 +354,7 @@
 
         </div>
             
-            
+         
 
 
         </body>
