@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Menu</title>
+        <title>TUTORIAL</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap" rel="stylesheet">
@@ -8,14 +8,26 @@
         <link rel="stylesheet" href="menucart.css">
         <script src="jquery.js" type="text/javascript"></script>
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-        <script src="menu.js"></script>
-
+        <script src="TUTORIAL.js"></script>
+        <audio id="introAudio">
+            <source type="audio/mp3" src="introo.mp3">
+            </audio>
+            <audio id="addedToCart">
+                <source type="audio/mp3" src="addeditemtocart.mp3">
+                </audio>
         <script>
             $(document).ready(function() {
                 $("#playWhenLoad")[0].play();
-      
+                $("#playButton").click(function() {
+    $("#introAudio")[0].play();
+    $("#arrowOne").fadeIn(); 
+  });
+                $("#addToCart").click(function(){
+                    $("#arrowOne").fadeOut(); 
+                    $("#addedToCart")[0].play();
+                })
             });
-            //0 is so can select HTML element 
+
         </script>
 
         <style>
@@ -177,7 +189,36 @@
                 50% { transform: translateX(-5px) }
                 75% { transform: translateX(5px) }
                 100% { transform: translateX(0) }
-            }        
+            }    
+            #playButton{
+                padding:2%;
+                background-color:#FFFDEF;
+                color:#300a00;
+                border: solid #300a00 0.5px;
+                border-radius:25px; 
+                padding:12px;
+                scale: 1.5;
+                opacity:0.7;
+                transition: .2s;
+            }
+            #playButton:hover{
+                border-color:#FFFDEF;
+                background-color: #ffbb0f;
+                color:#FFFDEF;
+                transform: scale(1.1);
+                opacity: 1;
+            }
+            #arrowOne{
+    
+		position: absolute;
+                width: 210px;
+                z-index: 10;
+                display: none; 
+            }
+            #addToCart{
+
+            }
+    
     /* #backgroundVid {
     position: fixed;
     z-index: 1;
@@ -211,13 +252,16 @@
             <br><br>
         <div class="container">
             <div class="title">
-                <div><b><p>Menu</p></b></div>
+                <div><b><p>Tutorial</p></b></div>
+                <button id="playButton">Get Started</button>
             </div>
+               
             <div class="cart">
+                
                 <img src="cart.png">
             </div>
         </div>
-
+   
         <div class="itemcontainer">
             <div id="item">
                 <img src="bubbleteamochi.png" >
@@ -245,16 +289,17 @@
                 <button>Add to Cart</button>
                 <br><br>
             </div>
-
+         
             <div id="item">
+                <img src="arrow.png" id="arrowOne" style:="left: 10px; top: 600px;">
                 <img src="coffeemilk.png">
                 <br>
                 <b>Coffee Milk</b>
                 <p>$2.20 ea <br><br></p>
-                <button>Add to Cart</button>
+                <button id="addToCart">Add to Cart</button>
                 <br><br>
             </div>
-
+      
             <div id="item">
                 <img src="hellokittymarshmellow.png">
                 <br>
