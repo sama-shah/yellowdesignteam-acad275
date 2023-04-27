@@ -21,10 +21,18 @@
                 $("#playButton").click(function() {
     $("#introAudio")[0].play();
     $("#arrowOne").fadeIn(); 
+    $("#arrowOne").animate({
+    "top": "500px"}, 1000).animate({
+	 "top": "400px"}, 1000).animate({
+	 "top": "500px"}, 1000).animate({
+	 "top": "400px"}, 1000).animate({
+	 "top": "500px"}, 1000).animate({
+	 "top": "400px"}, 1000)
   });
                 $("#addToCart").click(function(){
                     $("#arrowOne").fadeOut(); 
                     $("#addedToCart")[0].play();
+                   
                 })
             });
 
@@ -209,7 +217,7 @@
                 opacity: 1;
             }
             #arrowOne{
-    
+                
 		position: absolute;
                 width: 210px;
                 z-index: 10;
@@ -291,7 +299,7 @@
             </div>
          
             <div id="item">
-                <img src="arrow.png" id="arrowOne" style:="left: 10px; top: 600px;">
+                <img src="arrow.png" id="arrowOne" style:="left: 440px; top: 600px;">
                 <img src="coffeemilk.png">
                 <br>
                 <b>Coffee Milk</b>
