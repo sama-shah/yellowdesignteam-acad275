@@ -265,6 +265,38 @@
                     height: 1000px;
                 }
             }
+
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            .chartMenu {
+                width: 100vw;
+                height: 40px;
+                background: #1A1A1A;
+                color: rgba(54, 162, 235, 1);    
+            }
+
+            .chartMenu p {
+                padding: 10px;
+                font-size: 20px;
+            }
+
+            .chartCard {
+                width: 100vw;
+                background: #300a00;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .chartBox {
+                width: 900px;
+                padding: 20px;
+                border-radius: 20px;
+                border: solid 3px #ffbb0f;
+                background: #FFFDEF;
+            }
     </style>
 </head>
 <body>
@@ -388,15 +420,67 @@
         <div class="LeftText">
             <br>
             <br>
-            <span id="MedText"><strong><h1>So how has our <br>pilot gone so far?</h1> <br></strong>In one semester we got...<br><br>29 Sales<br>$XX in revenue.<br>$XX in profit.<br>That's a lot of satisfied customers.
+            <span id="MedText"><strong><h1>So how has our <br>pilot gone so far?</h1> <br></strong>In one semester we got...<br><br>29 Sales<br>$349.90 in revenue.<br>$145.27 in profit.<br>That's a lot of satisfied customers.
             <br>
             <br>
-
+            <div class="chartCard">
+                <div class="chartBox">
+                  <canvas id="myChart"></canvas>
+                </div>
+              </div>
+              
+              <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+              <script>
+              // setup 
+              const data = {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr'],
+                datasets: [{
+                  type: 'bar',
+                  label: 'Revenue ($)',
+                  data: [0 , 68.20, 116.50, 165.2],
+                  backgroundColor: '#ffbb0f',
+                  borderRadius: 20,
+                  barPercentage: 0.7
+                },{
+                  type: 'bar',
+                  label: 'Gross/Operating Profit ($)',
+                  data: [0 , 23.68, 48.41, 73.18],
+                  backgroundColor: '#300a00',
+                  borderRadius: 20,
+                  barPercentage: 0.7
+                }]
+              };
+          
+              // config 
+              Chart.defaults.font.family = "Manrope";
+              Chart.defaults.font.size = 16;
+              const config = {
+                type: 'bar',
+                data,
+                options: {
+                  scales: {
+                    y: {
+                      beginAtZero: true
+                    }
+                  }
+                }
+              };
+          
+              // render init block
+              const myChart = new Chart(
+                document.getElementById('myChart'),
+                config
+              );
+          
+              // Instantly assign Chart.js version
+              const chartVersion = document.getElementById('chartVersion');
+              chartVersion.innerText = Chart.version;
+              </script>
+          
    
             </a>
         </div>
-        <br>
-        <br>
+
         <div class="RightText" style="width: 700px">
             <br>
             <br>
