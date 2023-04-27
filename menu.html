@@ -178,6 +178,15 @@
                 75% { transform: translateX(5px) }
                 100% { transform: translateX(0) }
             }        
+            @keyframes video {
+                from {opacity: 0;}
+                to {opacity: 1;}
+            }
+            #playWhenLoad{
+                animation: 4s ease-in 0s 1 video;
+                pointer-events:none;
+                display:inline;
+            }
     /* #backgroundVid {
     position: fixed;
     z-index: 1;
@@ -187,7 +196,6 @@
     height: 180px;
   } */
 
-            
         </style>
         <body>
             <div class="navbar">
@@ -201,9 +209,8 @@
                         <!-- proffesor I am the one adding a logo to this page. I adapted your code on html5 with the online reccomendation for getting autoplay to work on chrome (muted and btw using 0 index to play html element), here
                         is for context https://stackoverflow.com/questions/34764876/html-5-video-autoplay-not-automatically-starting-in-chrome
                     best -Henry-->
-                        <video width="170" height="120" autoplay="autoplay" controls="controls" loop="loop" id="playWhenLoad" muted>
+                        <video style=" width:170; height:120;" autoplay="autoplay" controls="controls" loop="loop" id="playWhenLoad" muted>
                             <source src="FinalLogoAnimation.mp4" type="video/mp4" />
-                            Your browser does not support the video tag.
                         </video>
                     </div>
                 </div>
