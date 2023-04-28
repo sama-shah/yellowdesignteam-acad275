@@ -12,9 +12,18 @@
         <audio id="introAudio">
             <source type="audio/mp3" src="introo.mp3">
             </audio>
+
             <audio id="addedToCart">
                 <source type="audio/mp3" src="addeditemtocart.mp3">
                 </audio>
+
+                <audio id="payment">
+                    <source type="audio/mp3" src="paymentaudio.mp3">
+                    </audio>
+
+                <audio id="qrAudio">
+                    <source type="audio/mp3" src="qrcode.mp3">
+                    </audio>
         <script>
             $(document).ready(function() {
                 $("#playWhenLoad")[0].play();
@@ -29,12 +38,64 @@
 	 "top": "500px"}, 1000).animate({
 	 "top": "400px"}, 1000)
   });
-                $("#addToCart").click(function(){
-                    $("#arrowOne").fadeOut(); 
-                    $("#addedToCart")[0].play();
-                   
-                })
-            });
+$("#addToCart").click(function(){
+$("#arrowOne").fadeOut(); 
+$("#addedToCart")[0].play();
+$("#lefter").slideDown();
+$("#arrowshow").fadeIn();
+$("#arrowshow").animate({
+"left": "1000px"}, 100).animate({
+"left": "1050x"}, 100).animate({
+"left": "1000px"}, 100).animate({
+"left": "1050px"}, 100).animate({
+"left": "1050px"}, 100).animate({
+"left": "1000px"}, 100).animate({
+"left": "1050x"}, 100).animate({
+"left": "1000px"}, 100).animate({
+"left": "1050px"}, 100).animate({
+"left": "1050px"}, 100).animate({
+"left": "1000px"}, 100).animate({
+"left": "1050x"}, 100).animate({
+"left": "1000px"}, 100).animate({
+"left": "1050px"}, 100).animate({
+"left": "1050px"}, 100).animate({
+"left": "1000px"}, 100)
+})
+
+
+  $(".cart").click(function(){
+    $("#image4").fadeIn();
+    $("#image4").animate({"left": "29px"}, 100).animate({
+"left": "10px"}, 100).animate({
+"left": "29px"}, 100).animate({
+"left": "10px"}, 100).animate({
+"left": "29px"}, 100).animate({
+"left": "10px"}, 100).animate({
+"left": "29px"}, 100).animate({
+"left": "10px"}, 100).animate({
+"left": "29px"}, 100).animate({
+"left": "10px"}, 100).animate({
+"left": "29px"}, 100).animate({
+"left": "10px"}, 100).animate({
+"left": "29px"}, 100).animate({
+"left": "10px"}, 100).animate({
+"left": "29px"}, 100).animate({
+"left": "10px"}, 100)
+        $("#lefter").fadeOut();
+       $("#arrowshow").fadeOut();
+       $("#imgcart").fadeIn();
+       $("#payment")[0].play();
+
+    })
+
+    $("#imgcart").click(function(){
+        $("#qrAudio")[0].play();
+        $("#imgcart").fadeOut();
+        $("#qrrr").fadeIn();
+        $("#image4").fadeOut();
+    })
+}); 
+
 
         </script>
 
@@ -125,7 +186,7 @@
                 display:flex;
                 flex-direction: column;
                 padding-top:7%;
-                padding-right:10%;
+                padding-right:13%;
             }
             .cart img{
                 width: 90px;
@@ -223,51 +284,84 @@
                 z-index: 10;
                 display: none; 
             }
-            #addToCart{
-
+            #arrowshow{
+                position: absolute;
+                width: 190px;
+                height: auto;
+                z-index: 9;
+                display: none;  
+                left: 1000px;
             }
-    
-    /* #backgroundVid {
-    position: fixed;
-    z-index: 1;
-    top: 55px;
-    left: 570;
-    width: 320px;
-    height: 180px;
-  } */
-
+            #image4{
+                position: absolute;
+                width: 440px;
+                height: auto;
+                z-index: 999;
+                display: none;  
+                padding-top: 7%;
+               
+            }
+          #lefter{
+            margin-left: 79px;
+            display: none; 
+          }
+ #imgcart{
+    width: 27%;
+    height: auto;
+    margin-right: 90%;
+    margin-top: 10%;
+    z-index: 998;
+    display: none; 
+ }
+ #qrrr{
+    width: 37%;
+    height: auto;
+    margin-right: 95%;
+    margin-top: 10%;
+    z-index: 998;
+    display: none; 
+ }
             
         </style>
         <body>
             <div class="navbar">
                 <div>
                     <a href="home.html">HOME</a>
-                    <a href="">MENU</a>
+                    <a href="menu.html">MENU</a>
                     <a href="aboutWanwan.html">ABOUT</a>
                     <a href="tutorial.html" style="color: red;">TUTORIAL</a>
-                    <br>
                     <div style="height: 120px;">
                         <!-- proffesor I am the one adding a logo to this page. I adapted your code on html5 with the online reccomendation for getting autoplay to work on chrome (muted and btw using 0 index to play html element), here
                         is for context https://stackoverflow.com/questions/34764876/html-5-video-autoplay-not-automatically-starting-in-chrome
                     best -Henry-->
+                
                         <video width="170" height="120" autoplay="autoplay" controls="controls" loop="loop" id="playWhenLoad" muted>
                             <source src="FinalLogoAnimation.mp4" type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>
                     </div>
+            
                 </div>
             </div>
             <br><br>
+            <br><br>
         <div class="container">
             <div class="title">
-                <div><b><p>Tutorial</p></b></div>
+                <div><b><p>Tutorial</p></b></div>     <img src="arrow4.png" id="image4" >
                 <button id="playButton">Get Started</button>
             </div>
-               
+            
             <div class="cart">
-                
+            
+                <img src="arrow2.png" id="arrowshow">
+                <img src="one.png" id="lefter">
+            
                 <img src="cart.png">
             </div>
+          
+            <img src="cartpic.png" id="imgcart">
+            <img src="venmopng.png" id="qrrr"> 
+           
         </div>
    
         <div class="itemcontainer">
