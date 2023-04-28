@@ -433,23 +433,23 @@
               <script>
               // setup 
               const data = {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr'],
-                datasets: [{
-                  type: 'bar',
-                  label: 'Revenue ($)',
-                  data: [0 , 68.20, 116.50, 165.2],
-                  backgroundColor: '#ffbb0f',
-                  borderRadius: 20,
-                  barPercentage: 0.7
-                },{
-                  type: 'bar',
-                  label: 'Gross/Operating Profit ($)',
-                  data: [0 , 23.68, 48.41, 73.18],
-                  backgroundColor: '#300a00',
-                  borderRadius: 20,
-                  barPercentage: 0.7
-                }]
-              };
+      labels: ['Jan 7', 'Jan 14', 'Jan 21', 'Jan 28', 'Feb 4', 'Feb 11', 'Feb 18', 'Feb 25', 'Mar 4', 'Mar 11', 'Mar 18', 'Mar 25', 'Apr 1', 'Apr 8', 'Apr 15', 'Apr 22', 'Apr 29', 'May 6', 'May 7', 'May 14', 'May 21', 'May 28', 'Jun 4', 'Jun 11', 'Jun 18', 'Jun 25', 'Jul 2', 'Jul 9', 'Jul 16', 'Jul 23', 'Jul 30', 'Aug 5'],
+      datasets: [{
+        type: 'bar',
+        label: 'Cumulative Gross/Operating Profit ($)',
+        data: [0.00, 0.00, 100, 166.81, 166.81, 176.66, 187.26, 190.49, 198.53, 281.18, 287.90, 289.61, 295.29, 332.27, 339.48, 348, 368.47, 618, 340, 621, 281, 741, 675, 1417, 1707, 3107, 3734, 5258, 5891, 6795, 7582],
+        backgroundColor: '#300a00',
+        borderRadius: 20,
+        barPercentage: 0.7
+      },{
+        type: 'bar',
+        label: 'Cumulative Revenue ($)',
+        data: [0.00, 0.00, 250, 418, 418, 443, 468, 475, 498, 703, 720, 725, 737.5, 830, 848.7, 870, 920, 1545, 850, 1552.5, 702.5, 1852.5, 1687.5, 3542.5, 4267.5, 7767.5, 9335, 13145, 14727.5, 16987.5, 18955],
+        backgroundColor: '#ffbb0f',
+        borderRadius: 20,
+        barPercentage: 0.7
+      }]
+    };
           
               // config 
               Chart.defaults.font.family = "Manrope";
