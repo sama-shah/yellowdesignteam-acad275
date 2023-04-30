@@ -6,14 +6,30 @@
         <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap" rel="stylesheet">
         
         <link rel="stylesheet" href="menucart.css">
-        <script src="jquery.js" type="text/javascript"></script>
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
         <script src="menu.js"></script>
 
         <script>
             $(document).ready(function() {
                 $("#playWhenLoad")[0].play();
-      
+                $("#cartImage").on("click", function(){
+                    console.log("click");
+                    $(".CartContainer").animate({
+                        opacity: '1'
+                    });
+                    $("#cartImage").animate({
+                        opacity: '0'
+                    });
+                });
+                $("#xOutImage").on("click", function(){
+                    console.log("click");
+                    $(".CartContainer").animate({
+                        opacity: '0'
+                    });
+                    $("#cartImage").animate({
+                        opacity: '1'
+                    });
+                });
             });
             //0 is so can select HTML element 
         </script>
@@ -22,6 +38,19 @@
             @media only screen and (max-width: 800px) {
                 .container{
                     flex-direction:column;
+                }
+                .CartContainer{
+                    background-color: #300a00;
+                    color: white;
+                    border-radius: 25px;
+                    width: 300px;
+                    position: fixed;
+                    margin: auto;
+                    padding: 20px;
+                    z-index: 10;
+                    left: 10px;
+                    top: 200px;
+                    opacity: 0;
                 }
             }
             
@@ -106,16 +135,19 @@
                 flex-direction: column;
                 padding-top:7%;
                 padding-right:10%;
+                z-index: 10;
             }
-            .cart img{
+            #cartImage{
                 width: 90px;
                 height: 90px;
                 transition: .2s;
                 position:fixed;
                 padding-top:2%;
             }
-            .cart img:hover{
-                transform: scale(1.1);
+            #cartImage:hover{
+                width: 100px;
+                height: 100px;
+                transition: .2s;
             }
             .itemcontainer{
                 display:flex;
@@ -128,6 +160,25 @@
                 padding-left:11%;
                 padding-right:11%;
                 padding-top:5%;
+            }
+            .CartContainer{
+                background-color: #300a00;
+                color: white;
+                border-radius: 25px;
+                width: 300px;
+                position: fixed;
+                margin: auto;
+                padding: 20px;
+                z-index: 10;
+                right: 40px;
+                top: 200px;
+                opacity: 0;
+                box-shadow: 0px 0px 10px 10px #FFFDEF;
+            }
+            #CartHeader{
+                text-align: center;
+                color: white;
+                font-weight: bold;
             }
             #item{
                 display:flex;
@@ -184,8 +235,20 @@
             }
             #playWhenLoad{
                 animation: 4s ease-in 0s 1 video;
-                pointer-events:none;
-                display:inline;
+                position: relative;
+                left: 50px;
+                top: 50px;
+                z-index: -1;
+            }
+            #xOutImage{
+                width: 10px;
+                height: 10px;
+                transition: 0.2s;
+            }
+            #xOutImage:hover{
+                width: 15px;
+                height: 15px;
+                transition: 0.2s;
             }
     /* #backgroundVid {
     position: fixed;
@@ -205,23 +268,33 @@
                     <a href="aboutWanwan.html">ABOUT</a>
                     <a href="tutorial.html" style="color: red;">TUTORIAL</a>
                     <br>
-                    <div style="height: 120px;">
-                        <!-- proffesor I am the one adding a logo to this page. I adapted your code on html5 with the online reccomendation for getting autoplay to work on chrome (muted and btw using 0 index to play html element), here
-                        is for context https://stackoverflow.com/questions/34764876/html-5-video-autoplay-not-automatically-starting-in-chrome
-                    best -Henry-->
-                        <video style=" width:170; height:120;" autoplay="autoplay" controls="controls" loop="loop" id="playWhenLoad" muted>
-                            <source src="FinalLogoAnimation.mp4" type="video/mp4" />
-                        </video>
-                    </div>
                 </div>
             </div>
+            <div style="height: 0px; margin: 0px;">
+                <!-- proffesor I am the one adding a logo to this page. I adapted your code on html5 with the online reccomendation for getting autoplay to work on chrome (muted and btw using 0 index to play html element), here
+                is for context https://stackoverflow.com/questions/34764876/html-5-video-autoplay-not-automatically-starting-in-chrome
+            best -Henry-->
+                <video style=" width:170; height:120;" autoplay="autoplay" controls="controls" loop="loop" id="playWhenLoad" muted>
+                    <source src="FinalLogoAnimation.mp4" type="video/mp4" />
+                </video>
+            </div>
             <br><br>
+            <div class="CartContainer">
+                <div id="xOut">
+                    <img id="xOutImage" src="X.png">
+                </div>
+                <div id="CartHeader">Cart</div>
+                <br>
+                <hr>
+                <span>Total:<span>
+                <br>
+            </div>
         <div class="container">
             <div class="title">
                 <div><b><p>Menu</p></b></div>
             </div>
             <div class="cart">
-                <img src="cart.png">
+                <img id="cartImage" src="cart.png">
             </div>
         </div>
 
