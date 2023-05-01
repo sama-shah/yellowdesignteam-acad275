@@ -3,11 +3,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="emailform.css">
+    <link rel="stylesheet" href="chatbot.css">
+
     <meta charset="UTF-8">
-<!-- for chatbot -->
-    <html lang="en">
-    <link rel="stylesheet" href="chatbot-deployment/static/style.css">
-<!-- -------------->
+
     <style>
         html{
                 color: #300a00;
@@ -558,38 +557,212 @@
 </body>
 
         <!-- CHATBOT -->
-        <div id="chatbotstyles">
-            <div class="container">
-                <div class="chatbox">
-                    <div class="chatbox__support">
-                        <div class="chatbox__header">
-                            <div class="chatbox__image--header">
-                                <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png" alt="image">
-                            </div>
-                            <div class="chatbox__content--header">
-                                <h4 class="chatbox__heading--header">Personal Assistant</h4>
-                                <p class="chatbox__description--header">Hi! how can I help you understand WanWan's service?</p>
-                            </div>
-                        </div>
-                        <div class="chatbox__messages">
-                            <div></div>
-                        </div>
-                        <div class="chatbox__footer">
-                            <input type="text" placeholder="Write a message...">
-                            <button class="chatbox__send--footer send__button">Send</button>
-                        </div>
-                    </div>
-                    <div class="chatbox__button">
-                        <button><img src="chatbot-deployment/static/images/chatbox-icon.svg" /></button>
-                    </div>
-                </div>
-            </div>
+        <div class="toggle-container">
+            <button class="toggle-button"><img src="chat-icon.webp" /></button>
+        <!-- chatbot content -->
+        <div class="toggle-content">
+            <!-- <h1 style="text-align:center;">WanWan Assistant</h1> -->
+            <div id="chatbot-container"></div>
+            <div id="inputcontainer">
+            <input style="padding:10px; border-radius:25px; border-width: 0.2;" type="text" id="user-input" placeholder="Ask here...">
+            <button id="send-button">Send</button>
+        </div>
+        </div>
+        <!-- end chatbot content -->
+        </div>
+        <script>
+            var toggleContainer = document.querySelector('.toggle-container');
+            var toggleButton = toggleContainer.querySelector('.toggle-button');
+        
+            toggleButton.addEventListener('click', function() {
+            toggleContainer.classList.toggle('active');
+            });
+        
+            document.addEventListener('click', function(event) {
+                var isClickInside = toggleContainer.contains(event.target);
+                if (!isClickInside && toggleContainer.classList.contains('active')) {
+                toggleContainer.classList.remove('active');
+            }
+        });
+        </script>
+        
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+            <script>
+                $(document).ready(function() {
+                    // Define initial message from chatbot
+                    var chatbotMessage = "Hi there, I'm a chatbot. How can I help you?";
+        
+                    // Function to display chat messages
+                    function displayMessage(message, sender) {
+                        var messageClass = "chat-message";
+                        if (sender == "user") {
+                            messageClass += " user-message";
+                        }
+                        var messageHtml = "<div class='" + messageClass + "'>" + message + "</div>";
+                        $("#chatbot-container").append(messageHtml);
+                        $("#chatbot-container").scrollTop($("#chatbot-container")[0].scrollHeight);
+                    }
+        
+                    // Display initial message from chatbot
+                    displayMessage(chatbotMessage, "chatbot");
+        
+                    // Function to handle user input and chatbot response
+                    function handleUserInput() {
+                        var userInput = $("#user-input").val();
+                        displayMessage(userInput, "user");
+                        $("#user-input").val("");
+        
+                        // Send user input to server and get chatbot response
             
-                <script>
-                    // $SCRIPT_ROOT = {{ request.script_root|tojson }};
-                    $SCRIPT_ROOT = 'http://127.0.0.1:5000'
-                </script>
-                <!-- <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script> -->
-                <script type="text/javascript" src="http://127.0.0.1:5000/static/app.js"></script>
-            </div>
-                <!-- FINISH CHATBOT -->
+            //JSON Array Checking
+                    var intents=[
+                        {
+                        "tag": "greeting",
+                        "patterns": [
+                            "hi",
+                            "hey",
+                            "how are you",
+                            "is anyone there?",
+                            "hello",
+                            "good day"
+                        ],
+                        "responses": [
+                            "Hey :-)",
+                            "Hello, thanks for visiting",
+                            "Hi there, what can I do for you?",
+                            "Hi there, how can I help?"
+                        ]
+                        },
+                        {
+                        "tag": "goodbye",
+                        "patterns": ["bye", "see you later", "goodbye"],
+                        "responses": [
+                            "See you later, thanks for visiting",
+                            "Have a nice day",
+                            "Bye! Come back again soon."
+                        ]
+                        },
+                        {
+                        "tag": "thanks",
+                        "patterns": ["thanks", "thank you", "that's helpful", "thanks a lot!"],
+                        "responses": ["Happy to help!", "Any time!", "My pleasure"]
+                        },
+                        {
+                        "tag": "items",
+                        "patterns": [
+                            "which items do you have",
+                            "what kinds of items are there",
+                            "what do you sell",
+                            "what is your menu"
+                        ],
+                        "responses": [
+                            "We sell a large variety of asian snacks from boba mochi to yummy ramen. Check out our menu here: https://tinyurl.com/2p937ehx"
+                        ]
+                        },
+                        {
+                        "tag": "service",
+                        "patterns": [
+                            "how long will it take to recieve these items",
+                            "will the food be delivered to me?",
+                            "is there a delivery fee"
+                        ],
+                        "responses": [
+                            "For free, Wanwan delivers these items for free, all you need to do is fill out the form with your contact info and address and we will have it by your door within 1-4 business days!"
+                        ]
+                        },
+                        {
+                        "tag": "payments",
+                        "patterns": [
+                            "do you take credit cards",
+                            "do you accept Mastercard",
+                            "can I pay with Paypal",
+                            "are you cash only",
+                            "can I pay with Venmo",
+                            "can I pay with Zelle"
+                        ],
+                        "responses": [
+                            "We are only accepting Venmo for now. With an account there they accept many credit cards including American Express, Discover, MasterCard, and Visa."
+                        ]
+                        },
+                        {
+                        "tag": "complaints",
+                        "patterns": [
+                            "my order hasnt arrived",
+                            "my order has not arrived",
+                            "why is my order late",
+                            "when will I recieve my order"
+                        ],
+                        "responses": [
+                            "I am sorry you are experiencing difficulties with your order. If it has been more than 4 days since you placed your order, contact staff.wanwan@gmail.com to double check if your order was verified and recorded in the WanWan database."
+                        ]
+                        },
+                        {
+                        "tag": "contact",
+                        "patterns": [
+                            "who can I contact on the wanwan team",
+                            "who can help me",
+                            "who started wanwan",
+                            "who created wanwan"
+                        ],
+                        "responses": [
+                            "WanWan was brought to you by Elissa, Elvira, Liesl, Josephine, Dez, and George. You can reach out and learn more here! https://tinyurl.com/2njspx2e"
+                        ]
+                        },
+                        {
+                        "tag": "delivery",
+                        "patterns": [
+                            "how long does delivery take",
+                            "how long does shipping take",
+                            "when do I get my delivery"
+                        ],
+                        "responses": [
+                            "Delivery takes 1-4 days, and because we are a USC student service, we are all local so it is feasible to deliver quickly and promptly to students near us! It is at max a 10 minute walk!"
+                        ]
+                        },
+                        {
+                        "tag": "funny",
+                        "patterns": [
+                            "tell me a joke",
+                            "tell me something funny",
+                            "do you know a joke"
+                        ],
+                        "responses": [
+                            "What did the person wo ordered from Wanwan say? I Wanwant some more!"
+                        ]
+                        }
+                    ]
+                        
+            //END JSON ARRAY CHECK
+                    function removePunctuation(str) {
+                        return str.replace(/[^\w\s]|_/g, "");
+                    }
+        
+                    var chatbotResponse = "Sorry, I don't understand. Please try a different phrase.";
+        
+                    for (var i = 0; i < intents.length; i++) {
+                        var intent = intents[i];
+                        var cleaned = removePunctuation(userInput.toLowerCase());
+                        if (intent.patterns.includes(cleaned)){
+                            const random = Math.floor(Math.random() * intent.responses.length);
+                            chatbotResponse = intent.responses[random]
+                        }
+                    }
+        /////
+        
+                        displayMessage(chatbotResponse, "chatbot");
+                    }
+        
+                    // Sends user input when send button or enter key is clicked
+                    $("#send-button").click(function() {
+                        handleUserInput();
+                    });
+        
+                    $("#user-input").keypress(function(e) {
+                        if (e.which == 13) {
+                            handleUserInput();
+                        }
+                    });
+                });
+            </script>
+        <!-- FINISH CHATBOT -->
