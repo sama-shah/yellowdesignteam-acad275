@@ -249,6 +249,60 @@
                 height: 15px;
                 transition: 0.2s;
             }
+            #leftAlign{
+                float: left;
+                text-align: left;
+            }
+            #rightAlign{
+                float: right;
+                text-align: right;
+            }
+            #cartContent{
+                width: auto;
+                height: auto;
+                padding: 20px;
+            }
+            #Total{
+                padding-right: 20px;
+                text-align: right;
+            }
+            .payButton{
+                width: 300px;
+                height: 50px;
+                border-radius: 20px;
+                font-weight: bold;
+                font-size: 30px;
+                color: white;
+                border: none;
+                transition: 0.1s;
+            }
+            .payButton:hover{
+                scale: 1.05;
+                transition: 0.1s;
+            }
+            #Clear{
+                background-color: grey;
+                margin-bottom: 10px;
+                height: 30px;
+                width: 150px;
+                font-size: 20px;
+                border-radius: 15px;
+            }
+            #Print{
+                background-color: grey;
+                margin-bottom: 10px;
+                height: 30px;
+                width: 150px;
+                font-size: 20px;
+                border-radius: 15px;
+            }
+            #Venmo{
+                background-color: lightskyblue;
+                margin-bottom: 10px;
+            }
+            #Paypal{
+                background-color: gold;
+            }
     /* #backgroundVid {
     position: fixed;
     z-index: 1;
@@ -283,11 +337,91 @@
                     <img id="xOutImage" src="X.png">
                 </div>
                 <div id="CartHeader">Cart</div>
+                <div id="cartContent" style="clear: both;">
+                    <div id="leftAlign">
+                    </div>
+                    <div id="rightAlign">
+                    </div>
+                </div>
+                <div style="clear: both;"></div>
                 <br>
                 <hr>
-                <span>Total:<span>
                 <br>
+                <div id="Total">
+                    Total: $0
+                </div>
+                <br>
+                <button id="Clear" class="payButton">Clear Cart</button>
+                <button id="Print" class="payButton">Receipt</button>
+                <button id="Venmo" class="payButton">Venmo</button>
+                <button id="Paypal" class="payButton">PayPal</button>
             </div>
+
+            <script>
+                document.querySelector("#Print").addEventListener("click", function(){
+                    location.href = "receipt.html";
+                });
+
+                let total = 0;
+                let items = [];
+                let prices = [];
+                if(localStorage.getItem("items")){
+                    console.log("items local: " + localStorage.getItem("items"));
+                    items = JSON.parse(localStorage.getItem("items"));
+                    console.log("item array: " + items);
+                }
+                if(localStorage.getItem("prices")){
+                    console.log("prices local: " + localStorage.getItem("prices"));
+                    prices = JSON.parse(localStorage.getItem("prices"));
+                    console.log("prices array: " + prices);
+                }
+
+                recalculate();
+
+                function addItem(name, cost){
+                    items.push(name);
+                    prices.push(cost);
+                    localStorage.setItem("items", JSON.stringify(items));
+                    localStorage.setItem("prices", JSON.stringify(prices));
+                    recalculate();
+                }
+
+                $("#Clear").on("click", function(){
+                        ClearCart();
+                })
+
+                function ClearCart(){
+                    items = [];
+                    prices = [];
+                    localStorage.setItem("items", JSON.stringify(items));
+                    localStorage.setItem("prices", JSON.stringify(prices));
+                    recalculate();
+                }
+
+                function recalculate(){
+                    total = 0;
+                    for(let i = 0; i < prices.length; i++){
+                        total += parseFloat(prices[i]);
+                    }
+                    console.log("recalculated total: " + total);
+                    displayValues();
+                }
+
+                function displayValues(){
+                    document.querySelector("#leftAlign").innerHTML = " ";
+                    document.querySelector("#rightAlign").innerHTML = " ";
+                    document.querySelector("#Total").innerHTML = " ";
+                    let t_total = 0;
+                    for(let i = 0; i < prices.length; i++){
+                        document.querySelector("#leftAlign").innerHTML += items[i] + "<br>";
+                        document.querySelector("#rightAlign").innerHTML += "$" + prices[i] + "<br>";
+                    }
+                    document.querySelector("#Total").innerHTML += "Total: $" + total;
+
+                    console.log("items displayed");
+                }
+            </script>
+
         <div class="container">
             <div class="title">
                 <div><b><p>Menu</p></b></div>
@@ -303,7 +437,12 @@
                 <br>
                 <b>Bubble Tea Mochi</b>
                 <p>$4.20 ea <br><br></p>
-                <button>Add to Cart</button>
+                <button id="BTM">Add to Cart</button>
+                <script>
+                    $("#BTM").on("click", function(){
+                        addItem("Bubble Tea Mochi", 4.2);
+                    });
+                </script>
                 <br><br>
             </div>
             
@@ -312,7 +451,12 @@
                 <br>
                 <b>Choco Pie</b>
                 <p>$1.50 ea <br><br></p>
-                <button>Add to Cart</button>
+                <button id="CP">Add to Cart</button>
+                <script>
+                    $("#CP").on("click", function(){
+                        addItem("Choco Pie", 1.5);
+                    });
+                </script>
                 <br><br>
             </div>
 
@@ -321,7 +465,12 @@
                 <br>
                 <b>Chrysanthemum Tea</b>
                 <p>$2.00 ea <br><br></p>
-                <button>Add to Cart</button>
+                <button id="ChT">Add to Cart</button>
+                <script>
+                    $("#ChT").on("click", function(){
+                        addItem("Chrysanthemum Tea", 2);
+                    });
+                </script>
                 <br><br>
             </div>
 
@@ -330,7 +479,12 @@
                 <br>
                 <b>Coffee Milk</b>
                 <p>$2.20 ea <br><br></p>
-                <button>Add to Cart</button>
+                <button id="CM">Add to Cart</button>
+                <script>
+                    $("#CM").on("click", function(){
+                        addItem("Coffee Milk", 2.2);
+                    });
+                </script>
                 <br><br>
             </div>
 
@@ -339,7 +493,12 @@
                 <br>
                 <b>Hello Kitty Marshmellow</b>
                 <p>$4.00 ea <br><br></p>
-                <button>Add to Cart</button>
+                <button id="HKM">Add to Cart</button>
+                <script>
+                    $("#HKM").on("click", function(){
+                        addItem("Hello Kitty Marshmellow", 4);
+                    });
+                </script>
                 <br><br>
             </div>
 
@@ -348,7 +507,12 @@
                 <br>
                 <b>Honey Butter Chips</b>
                 <p>$3.50 ea <br><br></p>
-                <button>Add to Cart</button>
+                <button id="HBC">Add to Cart</button>
+                <script>
+                    $("#HBC").on("click", function(){
+                        addItem("Honey Butter Chips", 3.5);
+                    });
+                </script>
                 <br><br>
             </div>
 
@@ -357,7 +521,12 @@
                 <br>
                 <b>Indomie</b>
                 <p>$2.50 ea <br><br></p>
-                <button>Add to Cart</button>
+                <button id="Ind">Add to Cart</button>
+                <script>
+                    $("#Ind").on("click", function(){
+                        addItem("Indomie", 2.5);
+                    });
+                </script>
                 <br><br>
             </div>
 
@@ -366,7 +535,12 @@
                 <br>
                 <b>Jagabee French Fry</b>
                 <p>$5.20 ea <br><br></p>
-                <button>Add to Cart</button>
+                <button id="JFF">Add to Cart</button>
+                <script>
+                    $("#JFF").on("click", function(){
+                        addItem("Jagabee French Fry", 5.2);
+                    });
+                </script>
                 <br><br>
             </div>
 
@@ -375,7 +549,12 @@
                 <br>
                 <b>Matcha Pocky</b>
                 <p>$3.00 ea <br><br></p>
-                <button>Add to Cart</button>
+                <button id="MP">Add to Cart</button>
+                <script>
+                    $("#MP").on("click", function(){
+                        addItem("Matcha Pocky", 3);
+                    });
+                </script>
                 <br><br>
             </div>
 
@@ -384,7 +563,12 @@
                 <br>
                 <b>Peach Ramune</b>
                 <p>$3.00 ea <br><br></p>
-                <button>Add to Cart</button>
+                <button id="PR">Add to Cart</button>
+                <script>
+                    $("#PR").on("click", function(){
+                        addItem("Peach Ramune", 3);
+                    });
+                </script>
                 <br><br>
             </div>
 
@@ -393,7 +577,12 @@
                 <br>
                 <b>Ramen Snack BBQ</b>
                 <p>$3.00 ea <br><br></p>
-                <button>Add to Cart</button>
+                <button id="RSB">Add to Cart</button>
+                <script>
+                    $("#RSB").on("click", function(){
+                        addItem("Ramen Snack BBQ", 3);
+                    });
+                </script>
                 <br><br>
             </div>
 
@@ -402,7 +591,12 @@
                 <br>
                 <b>Ramen Snack Seaweed</b>
                 <p>$3.00 ea <br><br></p>
-                <button>Add to Cart</button>
+                <button id="RSS">Add to Cart</button>
+                <script>
+                    $("#RSS").on("click", function(){
+                        addItem("Ramen Snack Seaweed", 3);
+                    });
+                </script>
                 <br><br>
             </div>
 
@@ -411,7 +605,12 @@
                 <br>
                 <b>Roasted Green Peas</b>
                 <p>$4.20 ea <br><br></p>
-                <button>Add to Cart</button>
+                <button id="RGP">Add to Cart</button>
+                <script>
+                    $("#RGP").on("click", function(){
+                        addItem("Roasted Green Peas", 4.2);
+                    });
+                </script>
                 <br><br>
             </div>
 
@@ -420,7 +619,12 @@
                 <br>
                 <b>Shin Ramen</b>
                 <p>$3.00 ea <br><br></p>
-                <button>Add to Cart</button>
+                <button id="SR">Add to Cart</button>
+                <script>
+                    $("#SR").on("click", function(){
+                        addItem("Shin Ramen", 3);
+                    });
+                </script>
                 <br><br>
             </div>
 
@@ -429,7 +633,12 @@
                 <br>
                 <b>Turtle Chips</b>
                 <p>$3.00 ea <br><br></p>
-                <button>Add to Cart</button>
+                <button id="TC">Add to Cart</button>
+                <script>
+                    $("#TC").on("click", function(){
+                        addItem("Turtle Chips", 3);
+                    });
+                </script>
                 <br><br>
             </div>
 
