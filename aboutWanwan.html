@@ -87,7 +87,7 @@
         transform: scaleX(1);
     }
 
-    .title {
+    .maintitle {
         margin-top: 3%;
         margin-bottom: 3%;
         font-size: 80pt;
@@ -97,7 +97,7 @@
 
     }
 
-    .title p:hover {
+    .maintitle p:hover {
         color: #ffbb0f;
     }
 
@@ -105,7 +105,7 @@
         margin: 0%;
     }
 
-    img {
+    #hungrygif {
         border-radius: 30px;
         width: 700px;
         height: 400px;
@@ -127,6 +127,9 @@
         height: 30px;
         overflow: hidden;
         margin-top: 5%;
+        margin-left: 10%;
+        margin-right: 10%;
+
     }
 
     .scroll-text {
@@ -153,69 +156,194 @@
     }
 
     .wiggle {
-  text-align: right;
-  width: 100%;
-}
+        text-align: right;
+        width: 100%;
+    }
 
-@keyframes wiggle {
-  0% { transform: rotate(0deg); }
-  80% { transform: rotate(0deg); }
-  85% { transform: rotate(5deg); }
-  95% { transform: rotate(-5deg); }
-  100% { transform: rotate(0deg); }
-}
+    @keyframes wiggle {
+        0% {
+            transform: rotate(0deg);
+        }
 
-h1.wiggle {
-  display: inline-block;
-  animation: wiggle 2.5s infinite;
-  position: inline;
-  margin-top: 15px;
-  margin-bottom: 15px;
+        80% {
+            transform: rotate(0deg);
+        }
 
-}
+        85% {
+            transform: rotate(5deg);
+        }
 
-h1.wiggle:hover {
-  animation: none;
-  color: #ffbb0f;
-}
+        95% {
+            transform: rotate(-5deg);
+        }
 
-.bodytext { 
-    font-size: 24px;
-    margin: 3% 10% 3% 10%;
-}
+        100% {
+            transform: rotate(0deg);
+        }
+    }
 
-.button { 
-    margin: 10% 10% 3% 10%; 
-    padding: 20px;
-    border-radius: 50px;
-    background-color: #ffbb0f;
-    text-decoration: none;
-    color: #FFFDEF;
-}
+    h1.wiggle {
+        display: inline-block;
+        animation: wiggle 2.5s infinite;
+        position: inline;
+        margin-top: 15px;
+        margin-bottom: 15px;
 
-.button:hover{ 
-    background-color: #300a00;
-    color: #FFFDEF;
-}
+    }
 
-@media only screen and (max-width: 600px) {
-    .title { 
-        font-size: 80px;
-        margin-top: 5%;
+    h1.wiggle:hover {
+        animation: none;
+        color: #ffbb0f;
+    }
+
+    .bodytext {
+        font-size: 24px;
+        margin: 3% 10% 3% 10%;
+    }
+
+    .button {
+        margin: 10% 10% 3% 10%;
+        padding: 20px;
+        border-radius: 50px;
+        background-color: #ffbb0f;
+        text-decoration: none;
+        color: #FFFDEF;
+    }
+
+    .button:hover {
+        background-color: #300a00;
+        color: #FFFDEF;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .maintitle {
+            font-size: 80px;
+            margin-top: 5%;
+        }
+
+        #hungrygif {
+            width: 450px;
+            height: 290px;
+        }
+    }
+
+    /* about design team */
+
+    .profiles {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        padding-top: 2%;
+        margin-left: 16%;
+        margin-right: 16%;
+        justify-content: center;
+        gap: 60px;
+    }
+
+    #imgcontainer {
+        transition: transform 250ms;
+    }
+
+    #imgcontainer:hover {
+        transform: scale(1.1);
+    }
+
+    .title {
+        margin: auto;
+        text-align: left;
+        font-size: 40pt;
+        animation: horizontal-shaking;
+    }
+
+    .title p:hover {
+        color: #ffbb0f;
+        animation: horizontal-shaking 0.5s;
+    }
+
+    @keyframes horizontal-shaking {
+        0% {
+            transform: translateX(0)
+        }
+
+        25% {
+            transform: translateX(5px)
+        }
+
+        50% {
+            transform: translateX(-5px)
+        }
+
+        75% {
+            transform: translateX(5px)
+        }
+
+        100% {
+            transform: translateX(0)
+        }
     }
 
     img {
-        width: 450px;
-        height: 290px;
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        object-position: 25% 25%;
     }
-}
 
-/* @media only screen and (max-width: 750px) {
-    img {
-        width: 550px;
-        height: 390px;
+    img:hover {
+        box-shadow: 10px 10px 5px #300a00;
+
     }
-} */
+
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid #300a00;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #ffbb0f;
+    }
+
+    .wanwanprofiles {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-gap: 40px;
+        padding: 20px;
+        justify-items: center;
+        margin: 3% 10% 3% 10%;
+    }
+
+    .team-member {
+        text-align: center;
+        padding: 10px;
+        border: 1px solid #300a00;
+        border-radius: 15px;
+    }
+
+    .bio {
+        font-size: 14px;
+        margin-top: 10px;
+    }
+
+    .table-container {
+        margin: 3% 10% 3% 10%;
+    }
+
+    body {
+    overflow-x: hidden;
+}
 </style>
 
 <body>
@@ -227,12 +355,12 @@ h1.wiggle:hover {
         </div>
     </div>
 
-    <div class="title">
+    <div class="maintitle">
         <p>Who is Wan Wan?</p>
     </div>
 
     <div class="gif">
-        <img src="hungry.gif">
+        <img id="hungrygif" src="hungry.gif">
     </div>
 
     <div class="scroll-text-container">
@@ -258,16 +386,249 @@ h1.wiggle:hover {
     </div>
 
     <div class="bodytext">
-        <p>We know what it feels like. Feeling your wallet cry out in pain when you see that an Uber to Ktown costs $25. Being so hungry at 2AM that you’d sell a kidney for some food. Smelling ramen from the neighboring suite and wishing you had some… People need snacks. But not another pack of off-brand pita chips…we want the snacks that remind us of home.</p>
+        <p>We know what it feels like. Feeling your wallet cry out in pain when you see that an Uber to Ktown costs $25.
+            Being so hungry at 2AM that you’d sell a kidney for some food. Smelling ramen from the neighboring suite and
+            wishing you had some… People need snacks. But not another pack of off-brand pita chips…we want the snacks
+            that remind us of home.</p>
 
-        <br> 
+        <br>
 
-        <p>So, we founded <strong style="font-size:35px;">Wanwan!</strong> Right now, we’re still small, but if you stick with us, we hope we can bring more and more snacks to your door, faster.</p>
+        <p>So, we founded <strong style="font-size:35px;">Wanwan!</strong> Right now, we’re still small, but if you
+            stick with us, we hope we can bring more and more snacks to your door, faster.</p>
         <br>
     </div>
 
-    <a class="button"href="aboutDesignTeam.html">Meet the Design Team
+    <a class="button" href="aboutDesignTeam.html">Meet the Design Team
     </a>
+
+    <div class="maintitle">
+        <p style="font-size: 80px;">Meet The Wan Wan Team.</p>
+    </div>
+
+    <div class="wanwanprofiles">
+        <!-- Container for each team member -->
+        <div class="team-member">
+            <img src="elissa.jpg">
+            <p style="font-size:16pt; text-align: center;"><b>Elissa Martial</b></p>
+            <p style="text-align: center;"><em>Product Manager</em></p>
+            <p class="bio">As Wan Wan's Product Manager, Elissa Martial brings over 5 years of seasoned experience to
+                the team. Known for her successful track record in leading multiple product launches, Elissa's expertise
+                is complemented by her love for cheesecake and her playful nature when it comes to clowning around with
+                her favorite people :).
+            </p>
+        </div>
+
+        <div class="team-member">
+            <img src="tiffany.jpg">
+            <p style="font-size:16pt; text-align: center;"><b>Tiffany Lutan</b></p>
+            <p style="text-align: center" ;><em>Communications Lead</em></p>
+            <p class="bio">As Wan Wan's Communications Lead, Tiffany Lutan is an aspiring product designer and avid
+                stargazer with a passion for creativity. An introverted INFP, Tiffany enjoys indie video games,
+                crafting, and making people laugh with dry humor, while advocating for mental wellness and inclusion.
+            </p>
+        </div>
+
+        <div class="team-member">
+            <img src="dezin.jpg">
+            <p style="font-size:16pt; text-align: center;"><b>Dezin Delgatty</b></p>
+            <p style="text-align: center" ;><em>Designer</em></p>
+            <p class="bio">As Wan Wan's Designer, Dezin Delgatty is an active problem-solver with a lifelong passion for
+                design. A self-proclaimed maker, Dezin's love for design began in preschool and now Dezin is eager to
+                acquire the skills to become a professional product designer after college.
+            </p>
+        </div>
+
+        <div class="team-member">
+            <img src="josephine.jpg">
+            <p style="font-size:16pt; text-align: center;"><b> Josephine Onggowarsito</b></p>
+            <p style="text-align: center" ;><em>Designer</em></p>
+            <p class="bio"> As a Designer at Wan Wan, Josephine Onggowarsito brings a blend of creativity and technical
+                expertise. Outside of designing graphics and packaging, Josephine enjoys exploring virtual reality,
+                watching Netflix, reading Shonen Jump comics, and staying informed on the science of sleep—all while
+                snacking on salt and vinegar chips. Her passion for the arts, technology, and business drives her
+                contributions to the team.</p>
+        </div>
+
+        <div class="team-member">
+            <img src="elvira.jpg">
+            <p style="font-size:16pt; text-align: center;"><b>Elvira Lu</b></p>
+            <p style="text-align: center" ;><em>Treasurer</em></p>
+            <p class="bio">As Wan Wan's Treasurer, Elvira Lu is responsible for managing the organization's finances and
+                ensuring sound financial decision-making. She brings a strong sense of community and inclusivity to the
+                team. Hailing from Alameda, CA, Elvira's experiences in SF Chinatown, Student Government, and Cross
+                Country have shaped her identity and commitment to collaboration. She continues to champion these values
+                at USC!</p>
+        </div>
+
+        <div class="team-member">
+            <img src="george.jpg">
+            <p style="font-size:16pt; text-align: center;"><b>George Zhou</b></p>
+            <p style="text-align: center" ;><em>Sales</em></p>
+            <p class="bio">As the Sales lead at Wan Wan, George Zhou is driven by his mission to help people, generate
+                revenue, and have fun. From from South Orange County, George's diverse experiences include developing a
+                mobile app for local food pantries, performing gigs across Southern California, and cherishing time with
+                friends. His commitment to these principles led him to the academy, where he continues to optimize and
+                integrate his passions.
+            </p>
+        </div>
+
+        <div class="team-member">
+            <img src="liesl.jpg">
+            <p style="font-size:16pt; text-align: center;"><b>Liesl Anggijono</b></p>
+            <p style="text-align: center" ;><em>Marketing</em></p>
+            <p class="bio">As Wan Wan's Marketing lead, Liesl Anggijono is an innovator from Jakarta with a passion for
+                addressing global challenges through creativity. She's dedicated to bridging gender and data gaps in
+                healthcare, and is excited about defying the status quo with ambitious, femtech-driven solutions.
+                Liesl's love for music, DJing, analog photography, and creative direction complements her enthusiasm for
+                building, learning, and exploring with her team.
+            </p>
+        </div>
+    </div>
+
+    <div class="maintitle">
+        <p style="font-size: 80px;">Meet The Design Team.</p>
+    </div>
+    <div class="profiles">
+        <div id="imgcontainer">
+            <img src="http://webdev.iyaclasses.com/~samaksha/acad275/resume_headshot.jpg">
+            <p style="font-size:16pt; text-align: center;"><b>Sama Shah</b></p>
+            <p style="text-align: center" ;><em>Project Manager</em></p>
+        </div>
+
+        <div id="imgcontainer">
+            <img src="http://webdev.iyaclasses.com/~tjlouie/acad275/Tyler.jpg">
+            <p style="font-size:16pt; text-align: center;"><b>Tyler Louie</b></p>
+            <p style="text-align: center" ;><em>Data Visualization Specialist</em></p>
+        </div>
+
+        <div id="imgcontainer">
+            <img src="http://webdev.iyaclasses.com/~relovsky/acad275/resume/Headshot.jpg">
+            <p style="font-size:16pt; text-align: center;"><b>Joey Relovsky</b></p>
+            <p style="text-align: center" ;><em>Web Developer</em></p>
+        </div>
+
+        <!-- Kaylie -->
+        <div id="imgcontainer">
+            <img src="http://webdev.iyaclasses.com/~meiqili/acad275/assets/resume2.jpg">
+            <p style="font-size:16pt; text-align: center;"><b>Kaylie Meiqi Li</b></p>
+            <p style="text-align: center" ;><em>UI/UX Designer</em></p>
+        </div>
+
+        <div id="imgcontainer">
+            <img src="http://webdev.iyaclasses.com/~hafox/acad275/henryResumeWebpageLab/Fox_Henry_Photo.jpeg">
+            <p style="font-size:16pt; text-align: center;"><b>Henry Fox </b></p>
+            <p style="text-align: center" ;><em>Motion Graphics Designer</em></p>
+        </div>
+
+    </div>
+
+    <div class="table-container">
+
+        <table>
+            <tr>
+                <th>Task Category</th>
+                <th>Task Description</th>
+                <th>Person</th>
+            </tr>
+            <tr>
+                <td>Technical</td>
+                <td>Synchronized media animation sequence (Animation of stuff going into cart, jQuery)</td>
+                <td>Henry</td>
+            </tr>
+            <tr>
+                <td>Technical</td>
+                <td>Original motion graphic (Animated logo, After Effects)</td>
+                <td>Henry</td>
+            </tr>
+            <tr>
+                <td>Technical</td>
+                <td>Interactive Photo Gallery (Behind the Scenes)</td>
+                <td>Kaylie</td>
+            </tr>
+            <tr>
+                <td>Technical</td>
+                <td>Interactive JS chart (Chart of profit/revenue over time)</td>
+                <td>Tyler</td>
+            </tr>
+            <tr>
+                <td>Customization</td>
+                <td>Act of updating items in cart</td>
+                <td>Joey</td>
+            </tr>
+            <tr>
+                <td>Medium Routine</td>
+                <td>Web chatbot</td>
+                <td>Sama</td>
+            </tr>
+            <tr>
+                <td>Major Routine</td>
+                <td>Adding local storage to cart + adding cart items on "add to cart" click (with additional features,
+                    see description)</td>
+                <td>Joey</td>
+            </tr>
+        </table>
+
+        <br>
+        <br>
+        <br>
+        <table>
+            <tr>
+                <th>Content</th>
+                <th>Page on Site</th>
+                <th>Person</th>
+            </tr>
+            <tr>
+                <td>Main/Frontpage/Homepage (Add to current Homepage)</td>
+                <td>Homepage</td>
+                <td>Joey</td>
+            </tr>
+            <tr>
+                <td>In-depth Product Description</td>
+                <td>Home</td>
+                <td>Joey</td>
+            </tr>
+            <tr>
+                <td>Team/About Us (for business team)</td>
+                <td>About Us</td>
+                <td>Kaylie</td>
+            </tr>
+            <tr>
+                <td>Website team</td>
+                <td>About Us</td>
+                <td>Kaylie</td>
+            </tr>
+            <tr>
+                <td>Behind the scenes</td>
+                <td>About Us</td>
+                <td>Kaylie</td>
+            </tr>
+            <tr>
+                <td>Problem/Solution</td>
+                <td>Home</td>
+                <td>Tyler</td>
+            </tr>
+            <tr>
+                <td>Marketplace</td>
+                <td>Home</td>
+                <td>Tyler</td>
+            </tr>
+            <tr>
+                <td>The deal/Ask</td>
+                <td>Home</td>
+                <td>Tyler</td>
+            </tr>
+            <tr>
+                <td>Business Pilot</td>
+                <td>Home</td>
+                <td>Tyler</td>
+            </tr>
+            <tr>
+                <td>Phase 1, 2, and beyond</td>
+                <td>Home</td>
+                <td>Tyler</td>
+            </tr>
+        </table>
+    </div>
 
 
 </body>
