@@ -399,6 +399,7 @@
                     for(let i = 0; i < prices.length; i++){
                         total += parseFloat(prices[i]);
                     }
+                    total = Math.round(total * 100) / 100;
                     console.log("recalculated total: " + total);
                     displayValues();
                 }
@@ -410,9 +411,19 @@
                     let t_total = 0;
                     for(let i = 0; i < prices.length; i++){
                         document.querySelector("#leftAlign").innerHTML += items[i] + "<br>";
-                        document.querySelector("#rightAlign").innerHTML += "$" + prices[i] + "<br>";
+                        if(prices[i] == Math.round(prices[i])){
+                            document.querySelector("#rightAlign").innerHTML += "$" + prices[i] + "<br>";
+                        }
+                        else{
+                            document.querySelector("#rightAlign").innerHTML += "$" + prices[i] + "0" + "<br>";
+                        }
                     }
-                    document.querySelector("#Total").innerHTML += "Total: $" + total;
+                    if (total == Math.round(total)){
+                        document.querySelector("#Total").innerHTML += "Total: $" + total;
+                    }
+                    else{
+                        document.querySelector("#Total").innerHTML += "Total: $" + total + "0";
+                    }
 
                     console.log("items displayed");
                 }
@@ -436,7 +447,7 @@
                 <button id="BTM">Add to Cart</button>
                 <script>
                     $("#BTM").on("click", function(){
-                        addItem("Bubble Tea Mochi", 4.2);
+                        addItem("Bubble Tea Mochi", 4.20);
                     });
                 </script>
                 <br><br>
@@ -450,7 +461,7 @@
                 <button id="CP">Add to Cart</button>
                 <script>
                     $("#CP").on("click", function(){
-                        addItem("Choco Pie", 1.5);
+                        addItem("Choco Pie", 1.50);
                     });
                 </script>
                 <br><br>
@@ -464,7 +475,7 @@
                 <button id="ChT">Add to Cart</button>
                 <script>
                     $("#ChT").on("click", function(){
-                        addItem("Chrysanthemum Tea", 2);
+                        addItem("Chrysanthemum Tea", 2.00);
                     });
                 </script>
                 <br><br>
@@ -478,7 +489,7 @@
                 <button id="CM">Add to Cart</button>
                 <script>
                     $("#CM").on("click", function(){
-                        addItem("Coffee Milk", 2.2);
+                        addItem("Coffee Milk", 2.20);
                     });
                 </script>
                 <br><br>
@@ -492,7 +503,7 @@
                 <button id="HKM">Add to Cart</button>
                 <script>
                     $("#HKM").on("click", function(){
-                        addItem("Hello Kitty Marshmellow", 4);
+                        addItem("Hello Kitty Marshmellow", 4.00);
                     });
                 </script>
                 <br><br>
@@ -506,7 +517,7 @@
                 <button id="HBC">Add to Cart</button>
                 <script>
                     $("#HBC").on("click", function(){
-                        addItem("Honey Butter Chips", 3.5);
+                        addItem("Honey Butter Chips", 3.50);
                     });
                 </script>
                 <br><br>
@@ -520,7 +531,7 @@
                 <button id="Ind">Add to Cart</button>
                 <script>
                     $("#Ind").on("click", function(){
-                        addItem("Indomie", 2.5);
+                        addItem("Indomie", 2.50);
                     });
                 </script>
                 <br><br>
@@ -534,7 +545,7 @@
                 <button id="JFF">Add to Cart</button>
                 <script>
                     $("#JFF").on("click", function(){
-                        addItem("Jagabee French Fry", 5.2);
+                        addItem("Jagabee French Fry", 5.20);
                     });
                 </script>
                 <br><br>
@@ -548,7 +559,7 @@
                 <button id="MP">Add to Cart</button>
                 <script>
                     $("#MP").on("click", function(){
-                        addItem("Matcha Pocky", 3);
+                        addItem("Matcha Pocky", 3.00);
                     });
                 </script>
                 <br><br>
@@ -562,7 +573,7 @@
                 <button id="PR">Add to Cart</button>
                 <script>
                     $("#PR").on("click", function(){
-                        addItem("Peach Ramune", 3);
+                        addItem("Peach Ramune", 3.00);
                     });
                 </script>
                 <br><br>
@@ -576,7 +587,7 @@
                 <button id="RSB">Add to Cart</button>
                 <script>
                     $("#RSB").on("click", function(){
-                        addItem("Ramen Snack BBQ", 3);
+                        addItem("Ramen Snack BBQ", 3.00);
                     });
                 </script>
                 <br><br>
@@ -590,7 +601,7 @@
                 <button id="RSS">Add to Cart</button>
                 <script>
                     $("#RSS").on("click", function(){
-                        addItem("Ramen Snack Seaweed", 3);
+                        addItem("Ramen Snack Seaweed", 3.00);
                     });
                 </script>
                 <br><br>
@@ -604,7 +615,7 @@
                 <button id="RGP">Add to Cart</button>
                 <script>
                     $("#RGP").on("click", function(){
-                        addItem("Roasted Green Peas", 4.2);
+                        addItem("Roasted Green Peas", 4.20);
                     });
                 </script>
                 <br><br>
@@ -618,7 +629,7 @@
                 <button id="SR">Add to Cart</button>
                 <script>
                     $("#SR").on("click", function(){
-                        addItem("Shin Ramen", 3);
+                        addItem("Shin Ramen", 3.00);
                     });
                 </script>
                 <br><br>
@@ -632,7 +643,7 @@
                 <button id="TC">Add to Cart</button>
                 <script>
                     $("#TC").on("click", function(){
-                        addItem("Turtle Chips", 3);
+                        addItem("Turtle Chips", 3.00);
                     });
                 </script>
                 <br><br>
