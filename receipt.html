@@ -1,0 +1,78 @@
+<head>
+    <style>
+        #receiptContainer{
+            width: 400px;
+            margin: auto;
+        }
+        #header{
+            text-align: center;
+        }
+        #leftAlign{
+                float: left;
+                text-align: left;
+            }
+        #rightAlign{
+            float: right;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+<div id="receiptContainer">
+    <div id="header">Receipt</div>
+    <hr>
+    <div id="cartContent" style="clear: both;">
+        <div id="leftAlign">
+        </div>
+        <div id="rightAlign">
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+    <br>
+    <hr>
+    <br>
+    <div id="Total">
+        Total: $0
+    </div>
+</div>
+
+<script>
+    let total = 0;
+    let items = [];
+    let prices = [];
+    if(localStorage.getItem("items")){
+        console.log("items local: " + localStorage.getItem("items"));
+        items = JSON.parse(localStorage.getItem("items"));
+        console.log("item array: " + items);
+    }
+    if(localStorage.getItem("prices")){
+        console.log("prices local: " + localStorage.getItem("prices"));
+        prices = JSON.parse(localStorage.getItem("prices"));
+        console.log("prices array: " + prices);
+    }
+    recalculate();
+
+    function recalculate(){
+        total = 0;
+        for(let i = 0; i < prices.length; i++){
+            total += parseFloat(prices[i]);
+        }
+        console.log("recalculated total: " + total);
+        displayValues();
+    }
+
+    function displayValues(){
+        document.querySelector("#leftAlign").innerHTML = " ";
+        document.querySelector("#rightAlign").innerHTML = " ";
+        document.querySelector("#Total").innerHTML = " ";
+        let t_total = 0;
+        for(let i = 0; i < prices.length; i++){
+            document.querySelector("#leftAlign").innerHTML += items[i] + "<br>";
+            document.querySelector("#rightAlign").innerHTML += "$" + prices[i] + "<br>";
+            }
+        document.querySelector("#Total").innerHTML += "Total: $" + total;
+
+        console.log("items displayed");
+    }
+</script>
+</body>

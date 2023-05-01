@@ -288,6 +288,14 @@
                 font-size: 20px;
                 border-radius: 15px;
             }
+            #Print{
+                background-color: grey;
+                margin-bottom: 10px;
+                height: 30px;
+                width: 150px;
+                font-size: 20px;
+                border-radius: 15px;
+            }
             #Venmo{
                 background-color: lightskyblue;
                 margin-bottom: 10px;
@@ -344,22 +352,27 @@
                 </div>
                 <br>
                 <button id="Clear" class="payButton">Clear Cart</button>
+                <button id="Print" class="payButton">Receipt</button>
                 <button id="Venmo" class="payButton">Venmo</button>
                 <button id="Paypal" class="payButton">PayPal</button>
             </div>
 
             <script>
+                document.querySelector("#Print").addEventListener("click", function(){
+                    location.href = "receipt.html";
+                });
+
                 let total = 0;
                 let items = [];
                 let prices = [];
                 if(localStorage.getItem("items")){
                     console.log("items local: " + localStorage.getItem("items"));
-                    let items = JSON.parse(localStorage.getItem("items"));
+                    items = JSON.parse(localStorage.getItem("items"));
                     console.log("item array: " + items);
                 }
                 if(localStorage.getItem("prices")){
                     console.log("prices local: " + localStorage.getItem("prices"));
-                    let prices = JSON.parse(localStorage.getItem("prices"));
+                    prices = JSON.parse(localStorage.getItem("prices"));
                     console.log("prices array: " + prices);
                 }
 
