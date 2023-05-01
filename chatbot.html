@@ -2,39 +2,37 @@
 <html>
 <head>
 	<title>Chatbot Demo</title>
-	<style>
-		/* Define styles for chatbot container and chat messages */
-		#chatbot-container {
-			width: 300px;
-			height: 400px;
-			background-color: #f5f5f5;
-			border: 2px solid #ccc;
-			border-radius: 5px;
-			overflow: auto;
-			margin-bottom: 20px;
-		}
+    <link rel="stylesheet" href="chatbot.css">
 
-		.chat-message {
-			background-color: #fff;
-			padding: 10px;
-			margin-bottom: 10px;
-			border-radius: 5px;
-			box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-		}
-
-		.user-message {
-			background-color: #e6e6e6;
-			text-align: right;
-		}
-	</style>
 </head>
 <body>
-	<h1>Chatbot Demo</h1>
+<div class="toggle-container">
+    <button class="toggle-button"><img src="chat-icon.webp" /></button>
+<!-- chatbot content -->
+<div class="toggle-content">
+	<!-- <h1 style="text-align:center; font-size:16pt;">WanWan Assistant</h1> -->
 	<div id="chatbot-container"></div>
 	<input type="text" id="user-input" placeholder="Type your message here...">
 	<button id="send-button">Send</button>
+</div>
+<!-- end chatbot content -->
+</div>
+<script>
+    var toggleContainer = document.querySelector('.toggle-container');
+    var toggleButton = toggleContainer.querySelector('.toggle-button');
 
-	<!-- Include jQuery -->
+    toggleButton.addEventListener('click', function() {
+    toggleContainer.classList.toggle('active');
+    });
+
+    document.addEventListener('click', function(event) {
+        var isClickInside = toggleContainer.contains(event.target);
+        if (!isClickInside && toggleContainer.classList.contains('active')) {
+        toggleContainer.classList.remove('active');
+    }
+});
+</script>
+
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 	<script>
@@ -63,7 +61,6 @@
 				$("#user-input").val("");
 
 				// Send user input to server and get chatbot response
-				// Replace this code with your own API or code for generating chatbot response
 	
     //JSON Array Checking
             var intents=[
@@ -188,7 +185,7 @@
                 return str.replace(/[^\w\s]|_/g, "");
             }
 
-            var chatbotResponse = "Sorry, I didn't understand that.";
+            var chatbotResponse = "Sorry, I don't understand. Please try a different phrase.";
 
             for (var i = 0; i < intents.length; i++) {
                 var intent = intents[i];
@@ -203,12 +200,11 @@
 				displayMessage(chatbotResponse, "chatbot");
 			}
 
-			// Send user input when Send button is clicked
+			// Sends user input when send button or enter key is clicked
 			$("#send-button").click(function() {
 				handleUserInput();
 			});
 
-			// Send user input when Enter key is pressed
 			$("#user-input").keypress(function(e) {
 				if (e.which == 13) {
 					handleUserInput();
