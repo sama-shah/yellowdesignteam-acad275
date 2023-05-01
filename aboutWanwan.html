@@ -9,6 +9,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:300,600'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css'><link rel="stylesheet" href="./style.css">
 </head>
 <style>
     html {
@@ -61,6 +65,8 @@
         position: relative;
         font-weight: bold;
         opacity: 0.7;
+        font-family: "Manrope";
+
     }
 
     .navbar a:hover {
@@ -68,6 +74,8 @@
         padding: 5px;
         border-radius: 5px;
         opacity: 0.8;
+        font-family: "Manrope";
+
     }
 
     .navbar a::before {
@@ -81,10 +89,14 @@
         background-color: #ffbb0f;
         transform: scaleX(0);
         transition: transform 0.3s ease;
+        font-family: "Manrope";
+
     }
 
     .navbar a:hover::before {
         transform: scaleX(1);
+        font-family: "Manrope";
+
     }
 
     .maintitle {
@@ -92,7 +104,8 @@
         margin-bottom: 3%;
         font-size: 80pt;
         text-align: center;
-        font-weight: bolder;
+        font-weight: bold;
+        font-family: "Manrope";
         /* margin: 3% 10% 3% 10%; */
 
     }
@@ -119,7 +132,8 @@
     .maintext {
         margin: 3% 10% 3% 10%;
         font-size: 40pt;
-        font-weight: bolder;
+        font-family: "Manrope";
+
     }
 
     .scroll-text-container {
@@ -295,6 +309,14 @@
 
     }
 
+    .gallery {
+        border-radius: 0%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 25% 25%;
+    }
+
 
     table {
         width: 100%;
@@ -398,8 +420,6 @@
         <br>
     </div>
 
-    <a class="button" href="aboutDesignTeam.html">Meet the Design Team
-    </a>
 
     <div class="maintitle">
         <p style="font-size: 80px;">Meet The Wan Wan Team.</p>
@@ -630,9 +650,64 @@
         </table>
     </div>
 
-    <a class="button"href="aboutDesignTeam.html">Meet the Website Design Team
+<div class="maintitle">
+    <p style="font-size: 80px; margin: 10%; margin-bottom: 0%;">Behind the Scenes of WanWan</p>
+</div>
+<article class='gallery' style="width: 80%; margin-left: 10%;">
+    <a class='gallery-link' href='bts1.jpeg'>
+      <figure class='gallery-image'>
+        <img height='1400' src='bts1.jpeg' width='1200' class="gallery">
+        <figcaption>HMART Shopping Time!</figcaption>
+      </figure>
     </a>
-<br><br><br>
+    <a class='gallery-link' href='bts2.jpeg'>
+      <figure class='gallery-image'>
+        <img height='1400' src='bts2.jpeg' width='1200' class="gallery">
+        <figcaption>BeReal at HMART :D</figcaption>
+      </figure>
+    </a>
+    <a class='gallery-link' href='bts3.jpeg'>
+      <figure class='gallery-image'>
+        <img height='1200' src='bts3.jpeg' width='1000' class="gallery">
+        <figcaption>Time to check out</figcaption>
+      </figure>
+    </a>
+    <a class='gallery-link' href='bts4.jpeg'>
+      <figure class='gallery-image'>
+        <img height='1000' src='bts4.jpeg' width='1000' class="gallery">
+        <figcaption>Check out all the snacks we got</figcaption>
+      </figure>
+    </a>
+    <a class='gallery-link' href='bts5.jpeg'>
+      <figure class='gallery-image'>
+        <img height='1000' src='bts5.jpeg' width='1000' class="gallery">
+        <figcaption>Team Dinner</figcaption>
+      </figure>
+    </a>
+    <a class='gallery-link' href='bts6.jpeg'>
+      <figure class='gallery-image'>
+        <img height='1200' src='bts6.jpeg' width='1400' class="gallery">
+        <figcaption>Flyers to pass out</figcaption>
+      </figure>
+    </a>
+    <a class='gallery-link' href='bts7.jpeg'>
+      <figure class='gallery-image'>
+        <img height='1400' src='bts7.jpeg' width='1000' class="gallery">
+        <figcaption>Snacks Delivered! </figcaption>
+      </figure>
+    </a>
+  </article>
+  <footer id='footer' role='contentinfo'>
+    <div class='container'>
+      <a class='logo' href='home.html' rel='home'>Wan Wan</a>
+      <a class='copy' href='home.html' target='_blank'>&copy; WanWan.Com</a>
+    </div>
+  </footer>
+  <!-- partial -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js'></script>
+  <script src='https://codepen.io/mican/pen/XgRmNr.js'></script><script  src="./script.js"></script>
 
 </body>
 
